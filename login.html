@@ -1,0 +1,117 @@
+<html>
+<head>
+<title>Login page</title>
+
+<script type="text/javascript">
+var count=0;
+function validd()
+	{
+	var txt1=document.getElementById("txt").value;
+	var txt2=/^[a-zA-Z0-9]+$/;
+	if(txt1=="")
+		{
+		alert("Enter Username");
+		count++;
+		return false;
+		}
+	if(txt1.match(txt2))
+		{
+		count=0;
+		pass();
+		}
+	else
+		{
+		alert("Invalid Username");
+	    count++;
+		return false;
+		}
+		}
+	function pass()
+	{
+	var pas=document.getElementById("ps1").value;
+	var pas1=/^[a-zA-Z0-9@]+$/;
+	
+	if(pas=="")
+		{
+     
+		alert("Enter password");
+		count++;
+		return false;
+		}
+	else if((pas.match(pas1))&& (pas.length > 8))
+		{
+		count=0;
+		}
+	else
+		{
+		alert("Invalid password");
+		 count++;
+		return false;
+		}
+	}
+	function rk()
+	{
+	if validd();
+	if pass();
+	if(count==0)
+	{
+	  windows.location.replace("menu.html");
+	}
+	}
+</script>
+<style>
+.button {
+  background-color: skyblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+fieldset{
+
+background-color:grey;
+opacity :0.8;
+}
+body, html {
+  height: 100%;
+
+  background-image: url("adm.jpg");
+
+  
+  height: 100%;
+
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+select {
+        width:200px;
+    }
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form action="main.html" method="post"><center>
+<fieldset style=width:500px;height:600px;>
+<table align="center" class="table table-dark">
+<tr><th colspan=2 >LOGIN</th></tr>
+<tr><th colspan=2><center><img src="s.png" width=50%></center></th></tr>
+<tr><td colspan=2 class=textt>User Type</td></tr>
+<tr><th colspan=2><select class="form-control"><option></option><option>Admin</option><option>User</option></th></tr>
+<tr><td colspan=2 class=textt>Username</td></tr>
+<tr><th colspan=2><input type=text class="form-control" id="txt" onblur="validd();"></th></tr>
+<tr><td colspan=2 class=textt>Password</td></tr>
+<tr><th colspan=2><input type=password class="form-control" id="ps1"onblur="pass();"></th></tr>
+<tr><th colspan=2><center><input type=submit value=login  class="btn btn-primary" onclick="rk()"></center></th></tr>
+</table>
+</fieldset>
+</center>
+</form>
+</body>
+</html>

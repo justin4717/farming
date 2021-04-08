@@ -1,0 +1,329 @@
+<html>
+<head>
+<title>login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+.container1{
+border-radius:50px;
+}
+body {
+
+   background-image:url("2.jpg");
+    background-size: cover;
+    background-attachment:fixed;	
+}
+
+.card-signin {
+  border:0;
+  border-radius: 5rem;
+  opacity:70%;
+}
+
+.card-signin .card-title {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+  padding: 2rem;
+  color:red;
+}
+
+.form-signin {
+  width: 100%;
+
+}
+
+.form-signin .btn {
+  font-size: 80%;
+  border-radius: 5rem;
+  letter-spacing: .1rem;
+  font-weight: bold;
+  padding: 1rem;
+  transition: all 0.2s;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input {
+  height: auto;
+  border-radius: 2rem;
+}
+
+.form-label-group>input,
+.form-label-group>label {
+  padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.form-label-group>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (2 / 3));
+  padding-bottom: calc(var(--input-padding-y) / 3);
+}
+
+.form-label-group input:not(:placeholder-shown)~label {
+  padding-top: calc(var(--input-padding-y) / 3);
+  padding-bottom: calc(var(--input-padding-y) / 3);
+  font-size: 12px;
+  color: #777;
+}
+
+.btn-google {
+  color: white;
+  background-color: #ea4335;
+}
+
+.btn-facebook {
+  color: white;
+  background-color: #3b5998;
+}
+
+
+}
+</style>
+<script type="text/javascript">
+    function nam()
+      {
+        var  x=document.getElementById("inputname").value;
+        var l=/^[a-zA-Z]+$/;
+        if(x=="")
+        {
+          document.getElementById('m1').innerHTML="enter name";
+          return true;
+        }
+
+        if(x.match(l))
+        {
+         document.getElementById('m1').innerHTML="";
+         
+        }
+        else
+        {
+          document.getElementById('m1').innerHTML="enter name in required format";
+         return true; 
+        }
+      }
+        function eml()
+      {
+        var  x=document.getElementById("inputEmail").value;
+        var l=/^[a-z@.]+$/;
+        if(x=="")
+        {
+          document.getElementById('m2').innerHTML="enter email";
+            return true;
+        }
+        if(x.match(l))
+        {
+         document.getElementById('m2').innerHTML="";
+          
+        }
+        else
+        {
+          document.getElementById('m2').innerHTML="enter email in required format";
+          return true;
+        }
+      }
+    function unam()
+      {
+        var  x=document.getElementById("inputtext").value;
+        var l=/^[a-zA-Z0-9@*#,.-_ ]+$/;
+        if(x=="")
+        {
+          document.getElementById('m3').innerHTML="enter username";
+            return true;
+        }
+        if(x.match(l))
+        {
+         document.getElementById('m3').innerHTML="";
+          
+        }
+        else
+        {
+          document.getElementById('m3').innerHTML="enter username in required format";
+          return true;
+        }
+      }
+       function pass()
+      {
+        var  x=document.getElementById("inputPassword").value;
+        var l=/^([a-zA-Z0-9@*#]{6,15})+$/;
+        if(x=="")
+        {
+          document.getElementById('m4').innerHTML="enter password";
+            return true;
+        }
+        if(x.match(l))
+        {
+         document.getElementById('m4').innerHTML="";
+          
+        }
+        else
+        {
+          document.getElementById('m4').innerHTML="enter password in required format";
+          return true;
+        }
+      }
+       function cpass()
+      {
+        var  x=document.getElementById("inputcPassword").value;
+        var l=document.getElementById("inputPassword").value;
+        if(x=="")
+        {
+          document.getElementById('m5').innerHTML="enter password";
+            return true;
+        }
+        if(x==l)
+        {
+         document.getElementById('m5').innerHTML="";
+          
+        }
+        else
+        {
+          document.getElementById('m5').innerHTML="enter same password ;"
+          return true;
+        }
+      }
+       function pho()
+      {
+        var  x=document.getElementById("inputphone").value;
+        var l=/^((8)[0-9]{9})+$/;
+        if(x=="")
+        {
+          document.getElementById('m7').innerHTML="enter phone no";
+           return false;
+        }
+        if(x.match(l))
+        {
+         document.getElementById('m7').innerHTML="";
+        }
+        else
+        {
+          document.getElementById('m7').innerHTML="enter valid number";
+      
+        }
+      }
+
+</script>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Sign Up</h5>
+            <form class="form-signin" method="POST" action="insert.php">
+			  
+			  
+			  <div class="form-label-group">
+                <input type="text" id="inputname" class="form-control" name="na" placeholder="Name" onchange="nam()" required autofocus>
+                <label for="inputname">Name</label>
+				<p id="m1"></p>
+              </div>
+			
+			  <div class="form-label-group">
+                <input type="email" id="inputEmail" class="form-control" name="em" onchange="eml()" placeholder="Email" required autofocus>
+                <label for="inputEmail">Email</label>
+				<p id="m2"></p>
+              </div>
+			
+              <div class="form-label-group">
+                <input type="text" id="inputtext" class="form-control" name="una" onchange="unam()" placeholder="Username" required autofocus>
+                <label for="inputtext">Username</label>
+				<p id="m3"></p>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="inputPassword" class="form-control" name="pa" onchange="pass()" placeholder="Password" required autofocus>
+                <label for="inputPassword">Password</label>
+				<p id="m4"></p>
+              </div>
+			  
+			  <div class="form-label-group">
+                <input type="password" id="inputcPassword" class="form-control" onchange="cpass()" placeholder="Confirm Password" required>
+                <label for="inputcPassword">Confirm Password</label>
+				<p id="m5"></p>
+              </div>
+			  
+			   
+			  <div class="form-label-group">
+                <input type="number" id="inputphone" class="form-control" name="ph" onchange="pho()" placeholder="Password" required>
+                <label for="inputphone">Phone</label>
+				<p id="m7"></p>
+              </div>
+			  
+			   <div class="container1">
+			   <label id="m7"> choose staff/student</label>
+			   <select class="form-control" id="inputtype" name="type" > 
+			   
+                <option value="student">Student</option>
+				        <option value="student">Staff</option>
+				</select>
+				<p id="m6"></p>
+              </div>
+			  
+			  <div class="form-label-group">
+                <input type="text" id="inputidno" class="form-control" name="ad" placeholder="Id no" onchange="idn()" required>
+                <label for="inputidno">Staff/student Id no</label>
+				<p id="m6"></p>
+              </div>
+			  
+			 
+
+             
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign up</button><br>
+             <a href="main.html" > <button class="btn btn-lg btn-primary btn-block text-uppercase" id="cancelbt" type="button">cancel</button></a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="javascript" src="jquery-3.4.1.min.js"></script>
+  <script>
+	
+  </script>
+</body>
+</html>

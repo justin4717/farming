@@ -1,0 +1,207 @@
+body {
+	background-image:url("bg1.jpg");
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	background-position: center;
+    background-size: cover;	
+	background-attachment:fixed;
+}
+.container1 {
+  background-color: #FFFFFF;
+  position:fixed;
+}
+header {
+  margin-top: 0px;
+  width: 100%;
+  height: 7%;
+  background-color: #db9423;
+  <!--border-bottom: 1px solid ;--> 
+   
+}
+.logo {
+	color: #fff;
+	font-weight: bold;
+	text-align: undefined;
+	width: 10%;
+	float: left;
+	margin-top: 15px;
+	margin-left: 35px;
+	letter-spacing: 4px;
+	
+}
+.logo:hover a{
+	color: black;
+}
+nav {
+	float: right;
+	width: 50%;
+	text-align: right;
+	margin-right: 10px;
+	
+	
+}
+header nav ul {
+	list-style: none;
+	float: right;
+}
+nav ul li {
+	float: left;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: left;
+	margin-right: 25px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	
+	transition: all 0.3s linear;
+	display:inline-block;
+}
+ul li a {
+	color: #FFFFFF;
+	
+	text-decoration: none;
+}
+ul li:hover a {
+	color: black;
+}
+
+.button {
+	position:absolute;
+ 
+  background-color:transparent;
+  border-radius: 50%;
+  color: #FFFFFF;
+  top:25%;
+  text-align:center;
+  font-size: 28px;
+  padding: 20px;
+  width: 110px;
+  height:100px;
+  transition:2s;
+  cursor: pointer;
+  margin-left:-150px
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 2s;
+}
+
+.button span:after {
+
+  position: absolute;
+  opacity:50;
+  top: 0;
+  right:-20px;
+  transition:0.5s;
+}
+
+.button:hover span {
+  padding-right:25px;
+   opacity:50;
+   right:15px;
+   
+}
+
+.button:hover span:after {
+  opacity:50;
+  right: 0;
+}
+
+
+
+
+
+.button1 {
+	position:absolute;
+ 
+  background-color: transparent;
+  border-radius: 50%;
+  color: #FFFFFF;
+  top:25%;
+  text-align:center;
+  font-size: 28px;
+  padding: 20px;
+  width: 120px;
+  height:100px;
+  transition: all 2s;
+  cursor: pointer;
+  margin-left:-5px
+}
+
+.button1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 2s;
+}
+
+.button1 span:after {
+
+  position: absolute;
+  opacity:50;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button1:hover span {
+  padding-right: 25px;
+  opacity:50;
+}
+
+.button1:hover span:after {
+  opacity: 50;
+  right: 0;
+}
+
+
+
+.button2 {
+	position:absolute;
+  border-radius: 4px;
+  background-color: transparent;
+  border-radius: 50%;
+  color: #FFFFFF;
+  top:25%;
+  text-align:center;
+  font-size: 28px;
+  padding: 20px;
+  width: 120px;
+  height:100px;
+  transition: all 2s;
+  cursor: pointer;
+  margin-left:150px
+}
+
+.button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 2s;
+}
+
+<!--.button2 span:after {
+
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}-->
+
+.button2:hover span {
+  padding-right: 25px;
+}
+
+.button2:hover span:after {
+  opacity: 50;
+  right: 0;
+}
+.sf{
+  width:10%;
+}

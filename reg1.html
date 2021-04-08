@@ -1,0 +1,244 @@
+<html>
+<head>
+<title>Registration</title>
+
+<script type="text/javascript">
+function names()
+{
+ var nam=document.getElementById('n').value;
+ var l=/^[a-zA-Z]+$/;
+ if (nam=="")
+ {
+   document.getElementById('p2').innerHTML="*enter name";
+   return false;
+ }
+ if(nam.match(l))
+ {
+ document.getElementById('p2').innerHTML="";
+ }
+ else
+ { 
+   document.getElementById('p2').innerHTML="*enter valid name";
+	return false;
+	}
+}
+
+function add()
+{
+ var ad=document.getElementById('a').value;
+ var l=/^[a-zA-Z0-9\.\,]+$/;
+ if (ad=="")
+ {
+  document.getElementById('p3').innerHTML="*enter address";
+   return false;
+ }
+ if(ad.match(l))
+ {
+  document.getElementById('p3').innerHTML="";
+ }
+ else
+ { 
+     document.getElementById('p3').innerHTML="*enter valid address";
+	return true;
+	}
+}
+
+function em()
+{
+ var e=document.getElementById('e').value;
+ var l=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})+$/;
+ if (e=="")
+ {
+  document.getElementById('p4').innerHTML="*enter email";
+   return false;
+ }
+ if(e.match(l))
+ {
+  document.getElementById('p4').innerHTML="";
+ }
+ else
+ { 
+     document.getElementById('p4').innerHTML="*enter valid email";
+	return true;
+	}
+}
+
+
+function num()
+{
+ var nu=document.getElementById('nm').value;
+ var d=/^[0][1-9]\d{9}$|^[1-9]\d{9}$/;
+ if (nu=="")
+ {
+  document.getElementById('p5').innerHTML="*enter  number";
+   return false;
+ }
+ if(nu.match(d))
+ {
+ document.getElementById('p5').innerHTML="";
+ }
+ else
+ { 
+    document.getElementById('p5').innerHTML="*enter valid number";
+	return false;
+	}
+}
+
+
+function psw()
+{
+ var pw=document.getElementById('ps').value;
+ var d=/^([a-zA-Z0-9(\*\!\@\#\%\^\&]){3,14}$/;
+ if (pw=="")
+ {
+   document.getElementById('p1').innerHTML="*enter eassword";
+   pw.onfocus();
+   return false;
+ }
+ if(pw.match(d))
+ {
+ document.getElementById('p1').innerHTML="";
+ }
+ else
+ { 
+    document.getElementById('p1').innerHTML="*enter valid password";
+	return true;
+	}
+}
+
+
+function cpsw()
+{
+var check=document.getElementById('ps').value;
+ var cpw=document.getElementById('cps').value;
+ 
+if(check==cpw)
+    {
+      document.getElementById('p7').innerHTML="*enter  password";
+    }
+	else{
+	  document.getElementById('p7').innerHTML="*enter same password";
+	  return false;;
+	  }
+}
+
+function unames()
+{
+ var nam=document.getElementById('un').value;
+ var l=/^[a-zA-Z0-9@#$%^&*!]+$/;
+ if (nam=="")
+ {
+   document.getElementById('p6').innerHTML="*enter user name";
+   return false;
+ }
+ if(nam.match(l))
+ {
+ document.getElementById('p6').innerHTML="";
+ }
+ else
+ { 
+   document.getElementById('p6').innerHTML="*enter valid user name";
+	return false;
+	}
+}
+function fileValidation(){
+    var fileInput = document.getElementById('file');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    if(!allowedExtensions.exec(filePath)){
+        alert('Please upload file having extensions .jpeg/.jpg/.png/.gif only.');
+        fileInput.value = '';
+        return false;
+    }else{
+        //Image preview
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('imagePreview').innerHTML = '<img src="'+e.target.result+'"/>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    }
+}
+
+</script>
+<style>
+  
+legend{
+       padding: 4px;
+	   background-color:#ffdcd1;
+	   border: 2px solid white;
+	   }
+	   body{
+        background-image:url("adm.jpg");
+
+}
+.f{
+color:white;
+background-color:transparent;
+width:600px;
+}
+</style>
+</head>
+<body>
+<form  class='f'>
+
+<table cellspacing="30"  >
+<tr>
+<th colspan="2">Register Here</th>
+<tr>
+<td>Name</td><td><input type="text" name="name" placeholder="Enter name" id='n' onblur ="names()"></td><td><font color="red"><p id="p2"></p></font></td>
+</tr>
+
+<tr>
+<td>Address</td><td><input type="textarea" name="address" value="" id="a" onblur="add()"></td><td><font color="red"><p id="p3"></p></font></td>
+</tr>
+
+<tr>
+<td>Gender</td><td colspan="2"><input type="radio" name="gender" value="Male"  checked>Male<input type="radio" name="gender" value="Female">Female</td>
+</tr>
+
+<tr>
+<td>Course</td><td colspan="2" id='ce'>
+<select name="course" value="MCA">
+<option value="BCA">BCA</option>
+<option value="Bsc">Bsc.</option>
+<option value="other">Other</option>
+</td>
+</tr>
+
+<tr>
+<td>Email</td><td><input type="email" name="email" value="" id='e' onblur="em()"></td><td><font color="red"><p id="p4"></p></font></td>
+</tr>
+
+<tr>
+<td>Phone</td><td><input type="number" name="phone" value="" id='nm' onblur="num()"></td><td><font color="red"><p id="p5"></p></font></td>
+</tr>
+
+<tr>
+<td>Username</td><td><input type="text" name="name" placeholder="Enter username" id='un' onblur="unames()"></td><td><font color="red"><p id="p6"></p></font></td>
+</tr>
+
+<tr>
+<td>Password</td><td><input type="password" name="password" placeholder="" id='ps' onblur='psw()'></td><td><font color="red"><p id="p1"></p></font></td>
+</tr>
+
+<tr>
+<td>Conform Password</td><td><input type="password" name="confirm password" id='cps' onblur='cpsw()' placeholder="" ></td><td><font color="red"><p id="p7"></p></font></td>
+</tr>
+
+<tr>
+<td><input type="checkbox" name="checkbox"></td><td> I agree the terms and conditions</td>
+</tr>
+<tr><td>
+<input type="file" id="file" onchange="return fileValidation()"/>
+ </tr><td>
+   
+<tr>
+<th colspan="2"><input type="Submit" name="submit" value="Submit" ></th>
+</tr>
+
+</table>
+</form>
+<body>
+</html>

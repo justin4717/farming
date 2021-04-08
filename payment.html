@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>payment page</title>
+<style>
+.button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+fieldset{
+
+background-color:skyblue;
+}
+body, html {
+  height: 100%;
+
+  background-image: url("pay.jpg");
+
+  
+  height: 100%;
+
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+select {
+        width:210px;
+    }
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<form action="done.html"><center>
+<fieldset style=width:500px;height:530px;>
+<table align="center" >
+<tr><th colspan=2 >ZeE PaY</th></tr>
+<tr><th colspan=2><center><img src="zp.png" style=width:60%;></center></th></tr>
+<tr><td colspan=2 class=textt>Card Type</td></tr>
+<tr><th colspan=2><select class="form-control" required>><option></option><option>SBI Debit Card</option><option>SBI Credit Card</option><option>Others</option></select></th></tr>
+<tr><td colspan=2 class=textt>Account no</td></tr>
+<tr><th colspan=2><input type=text class="form-control" required></th></tr>
+<tr><td colspan=2 class=textt>CVV</td></tr>
+<tr><th colspan=2><input type=password  class="form-control"required></th></tr>
+<tr><td colspan=2 class=textt>Enter Amount</td></tr>
+<tr><th colspan=2><input type=text class="form-control" required></th></tr>
+<tr><th colspan=2><center><input type=submit value=pay class="btn btn-primary" onclick=alert("Successfully completed")></center></th></tr></center></fieldset>

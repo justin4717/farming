@@ -1,0 +1,28 @@
+<?php
+//$con=mysqli_connect("localhost","root","","
+
+public class Database
+{
+	public function _construct()
+	{
+		$this->con = mysqli_connect("localhost","root","","");
+	}
+	
+	public function query($sql)
+	{
+		$result = array();
+		$res=mysqli_query($this->con, $sql);
+		while($row = mysql_fetch_assoc($res)) {
+			$result[] = $row;
+		}
+
+		return $result;
+	}
+}
+
+
+<?php
+//include Database.php
+	$db = new Database;
+	$result = $db->query("sel");
+	$result[0]
