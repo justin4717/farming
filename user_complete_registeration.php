@@ -1,6 +1,7 @@
 <?php
 include("get_user.php");
 
+
 ?>
 
 
@@ -32,13 +33,12 @@ include("get_user.php");
       <div class="text-center">
         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar" >
        <br><br>
-         <input type="file" class="text-center center-block file-upload" name="user_image" required>
+         <input type="file" class="text-center center-block file-upload" name="user_image" id="user_image" required>
       </div></hr><br>
 
                
          
-          
-        </div><!--/col-3-->
+        
     	<div class="col-sm-9">
             
         <div class="col-sm-12">
@@ -83,8 +83,9 @@ include("get_user.php");
                           
                               <label for="password"><h4>District</h4></label>
                              <select style="height:35" class="form-control" id="district" name="district" required>
+                               <option value="">Select District</option>.
                                 <?php foreach($state_item as $item) :    ?>
-                                  <option value="">Select District</option>
+                                 
                                
                                  <?php endforeach ; ?>
                               </select>
@@ -114,7 +115,7 @@ include("get_user.php");
                           
                             <label for="password2"><h4>Type Of Framing</h4></label>
                                <select style="height:35" class="form-control" id="farming_type" name="farming" multiple>
-                                   <option value="">Select State</option>
+                                   
                                    <?php foreach($farming_item as $item) :    ?>
 
                                       <option value="<?php echo $item["farming_type_id"]; ?>"><?php echo $item["farming_type_name"]; ?></option>

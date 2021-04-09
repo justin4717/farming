@@ -62,13 +62,13 @@
             
                 
             <button class="btn  btn-lg waves-effect btn-block"><a href="customer_home.php">Home</a></button>  
-          <!--  <button class="btn  btn-lg waves-effect btn-block"><a href="profile.php">My profile </a></button>
-            <button class="btn  btn-lg waves-effect btn-block">Posts</button>
-            <button class="btn  btn-lg waves-effect btn-block">Friends</button>
+          <button class="btn  btn-lg waves-effect btn-block"><a href="profile.php">My profile </a></button>
+            <button class="btn  btn-lg waves-effect btn-block"><a href="my_post.php">Posts</a></button>
+           <!-- <button class="btn  btn-lg waves-effect btn-block">Friends</button>
             <button class="btn  btn-lg waves-effect btn-block">Chat</button>
             <button class="btn  btn-lg waves-effect btn-block">Images</button>
             <button class="btn  btn-lg waves-effect btn-block">Notifications</button>-->
-            <button class="btn  btn-lg waves-effect btn-block"><a href="customer_change password.php">Change Password</a></button>
+            <button class="btn  btn-lg waves-effect btn-block"><a href="customer_change_password.php">Change Password</a></button>
             <br>
         </div>
         
