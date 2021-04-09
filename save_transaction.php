@@ -10,12 +10,12 @@
     $user =$_SESSION['user'];
     $created = date("Y-m-d H:i:s");
 
-    $sql="insert into transactions (trans_amount,trans_date,trans_type,ledger,narration,user_id,created_at) VALUES ($amount,'$date',$type,$ledger,'$narration',$user,$created)";
+    $sql="insert into transactions (trans_amount,trans_date,trans_type,ledger,narration,user_id,created_at) VALUES ($amount,'$date',$type,$ledger,'$narration',$user,'$created')";
     $output = array("status" => "failed");
     if(mysqli_query($con,$sql)) {
         $output['status'] = 'success';
     } else {
-        // echo mysqli_error($con);
+        echo mysqli_error($con);
     }
     mysqli_close($con);
     echo json_encode($output);
