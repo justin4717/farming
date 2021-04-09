@@ -1,5 +1,6 @@
-
-
+<?php
+  include("get_user.php");
+ ?>
 <head>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -41,13 +42,14 @@
         </a>
       </div>
       <ul class="nav navbar-nav navbar-right">
+        <li> <?php echo $_SESSION["user"]; ?></li>
         <li><a href="logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
         
       </ul>
     </div>
   </nav>
 
-<body class="theme-black" ">
+<body class="theme-black" >
     <
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
@@ -247,3 +249,8 @@
     <script src="js/jquery-datatable.js"></script>
 
     <!-- Demo Js -->
+<style type="text/css">
+  .menu{
+        overflow: hidden !important;
+    }
+</style>

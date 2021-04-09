@@ -4,7 +4,7 @@
     include("header.php");
     include("get_user.php");
     include("getguideline.php");
-    include("user_update_password.php");
+    
 
   // if (empty($_SESSION["state"])) {
     // header("location:user_complete_registeration.php");
@@ -86,7 +86,7 @@
                           <div class="form-group">
                           
                             <label for="password2"><h4>New Password</h4></label>
-                              <input type="password" class="form-control" name="pass" id="password" placeholder="new password" title="enter your place." onchange="pass()" required>
+                              <input type="password" class="form-control" name="pas" id="password" placeholder="new password" title="enter your place." onchange="pass()" required>
                                <p style="color: red" id="m1"></p>
                              
                           </div>

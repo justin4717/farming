@@ -5,10 +5,27 @@
     include("get_user.php");
     include("getguideline.php");
 
-  // if (empty($_SESSION["state"])) {
-    // header("location:user_complete_registeration.php");
-    //}
+ # if (empty($_SESSION["state"])) {
+  #   header("location:user_complete_registeration.php");
+   # }
 ?>
+<script type="text/javascript">
+    var coll = document.getElementsByClassName("collapsible1");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active1");
+    var content1 = this.nextElementSibling;
+    if (content1.style.display === "block") {
+      content1.style.display = "none";
+    } else {
+      content1.style.display = "block";
+    }
+  });
+}
+</script>
+
     <style type="text/css">
         .like-ico,.unlike-ico {
             cursor: pointer;
@@ -39,7 +56,7 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="home">
                             <button class="btn  btn-lg waves-effect " style="position: right" data-toggle="modal" data-target="#dModal">Add Post</button>
-                            <br>
+                            <br><br>
                             
                              <?php foreach($post_item as $item) :    ?>
                             <div class="panel panel-default panel-post">
@@ -104,29 +121,43 @@
                             
                         </div>
                     <div role="tabpanel" class="tab-pane fade in" id="profile_settings">
+                        <div class="right">
+                            <form action="" method="post" >
 
-                             <?php foreach($guideline_item as $item) :    ?>
-                            <div class="panel panel-default panel-post">
+                                <input type="text" name="valueToSearch" placeholder="find your farming..">
+                                <input type="submit" name="search" value="Search">
+                            </form>
+                        </div>
+                            <?php foreach($guideline_item as $item) :    ?>
+                            <!--  <div class="panel panel-default panel-post">
                                 <div class="panel-heading">
 
-                                    <div class="media">
-
-                                       <h1> <?php echo $item["guideline_title"]; ?> Farming </h1>
-                                    </div>
+                                    <div class="media">-->
+                                    <button type="button" class="collapsible1"><?php echo $item["guideline_title"]; ?> Farming</button>
+                                 
+                                         <!--
+                                   </div>
                                 </div>
-                                <div class="panel-body">
+                               <div class="panel-body">
                                     <div class="post">
                                         <div class="post-heading">
-                                            <p><h3><?php echo $item["guideline_desc"]; ?></h3></p>
+                                           
                                         </div>
                                         <div class="post-heading">
                                             
-                                            <p><?php echo $item["guideline_content"]; ?>"</p>
 
                                         </div>
                                      </div>
-                                 </div>
+                                 </div> -->
+                                 <div class="content1">
+                                    <p><h3><?php echo $item["guideline_desc"]; ?></h3></p>
+                                    <p><?php echo $item["guideline_content"]; ?>"</p>
+
+                                 <!-- </div>-->
+                                 <br>
+                                 
                             </div>
+                            <br><br>
                                 <?php endforeach ; ?>
                             
                             
@@ -135,9 +166,11 @@
                     <div role="tabpanel" class="tab-pane fade in" id="financial">
 
 
+
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 Transactions
+
                             </div>
                             <div class="panel-body">
 
@@ -308,6 +341,7 @@
         $(this).addClass("unlike-ico");
     });
 
+
     function getTransactions()
     {
         var type = $('#trans_types').val();
@@ -385,6 +419,23 @@
             });
         }
     });
+
+
+var coll = document.getElementsByClassName("collapsible1");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active1");
+    var content1 = this.nextElementSibling;
+    if (content1.style.display === "block") {
+      content1.style.display = "none";
+    } else {
+      content1.style.display = "block";
+    }
+  });
+}
+
 </script>
 <style type="text/css">
     .bg{
@@ -398,6 +449,33 @@
         overflow: hidden;
     }
     
+
+.collapsible1 {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active1, .collapsible1:hover {
+  background-color: #555;
+}
+
+.content1 {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+.right{
+    float: right;
+    margin-right: 5px;
+}
  
 
 </style>
