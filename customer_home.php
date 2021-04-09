@@ -133,24 +133,61 @@
                     </div>
 
                     <div role="tabpanel" class="tab-pane fade in" id="financial">
-                         <div class="container-fluid">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">            
-                                       
-                                         <div class="d-grid gap-2 d-md-block">
-                                          <button class="btn btn-primary" type="button">New Transaction</button>
 
-                                          <button class="btn btn-primary" type="button">Download PDF </button>
-                                           <button class="btn btn-primary" type="button">Do </button>
-                                        </div>
-                                    </div>                  
-                                </div> 
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Transactions
                             </div>
-                           
-                        </div>
+                            <div class="panel-body">
 
-                     </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Transaction Type</label>
+                                        <select id="trans_types" class="form-control">
+                                            <option value="-1">All</option>
+                                            <option value="0">Income</option>
+                                            <option value="1">Expense</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label>Ledger</label>
+                                        <select id="ledger" class="form-control">
+                                            <option value="-1">All</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="from">Transaction Date</label>
+                                        <input class="form-control" type="text" id="dates" name="dates">
+                                    </div>
+                                    <div class="col-md-1">
+                                        <br>
+                                        <button class="btn btn-success" type="button" onclick="getTransactions()">Search</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <br>
+                                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#new_trans">New Transaction</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="trans_table" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Transaction No.</th>
+                                                    <th>Type</th>
+                                                    <th>Amount</th>
+                                                    <th>Date</th>
+                                                    <th>Narration</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="modal fade" id="dModal" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
@@ -189,6 +226,52 @@
         </div>
     </div>
 </div>
+
+<div id="new_trans" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">News Transaction</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+            <div class="col-md-6">
+                <label>Transaction Type</label>
+                <select id="trans_type_new" class="form-control">
+                    <option value="0">Income</option>
+                    <option value="1">Expense</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label>Transaction Date</label>
+                <input id="trans_date" class="form-control" type="date">
+            </div>
+            <div class="col-md-6">
+                <label>Ledger</label>
+                <select class="form-control" id="ledger_trans_new" style="width: 100%;">
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label>Amount</label>
+                <input id="amount" class="form-control" type="number">
+            </div>
+            <div class="col-md-12">
+                <label>Narration</label>
+                <textarea id="narration" class="form-control"></textarea>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="trans_save" type="button" class="btn btn-success">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     
 <script type="text/javascript">
     $(document).on('click', '.cm-click', function() {
@@ -223,6 +306,84 @@
         likeDislike(post_id);
         $(this).removeClass("like-ico");
         $(this).addClass("unlike-ico");
+    });
+
+    function getTransactions()
+    {
+        var type = $('#trans_types').val();
+        var ledger = $('#ledger').val();
+        var dates = $('#dates').val();
+        $('#trans_table').DataTable( {
+            "bDestroy": true,
+            "processing": true,
+            "serverSide": true,
+            "ajax": "get_transactions.php?type="+type+"&ledger="+ledger+"&dates="+dates,
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+    }
+
+    $(document).ready(function() {
+        getTransactions();
+        $('input[name="dates"]').daterangepicker({
+            "locale": {
+                "format": "DD/MM/YYYY",
+            }
+        });
+
+        $('#ledger_trans_new').select2({
+            dropdownParent: $('#new_trans'),
+            ajax: {
+                url: 'get_ledger.php',
+                dataType: 'json',
+                data: function (data) {
+                    return {
+                        searchTerm: data.term // search term
+                    };
+                },
+                processResults: function (response) {
+                    return {
+                        results:response
+                    };
+                },
+                cache: true
+            }
+        });
+
+    });
+
+    
+    $('#trans_save').click(function(){
+        var trans_type_new = $('#trans_type_new').val();
+        var trans_date = $('#trans_date').val();
+        var ledger_trans_new = $('#ledger_trans_new').val();
+        var amount = $('#amount').val();
+        var narration = $('#narration').val();
+        if (trans_type_new=='' || trans_date=='' || ledger_trans_new=='' || amount=='') {
+            alert("Please fill All Fields");
+            return;
+        } else {
+            $.ajax({
+              type: 'POST',
+              url: "save_transaction.php",
+              data: {trans_type:trans_type_new,trans_date:trans_date,ledger:ledger_trans_new,amount:amount,narration:narration},
+              dataType: "json",
+              success: function(resultData) {
+                if (resultData.status=="success") {
+                    alert("Transaction Saved Successfully !");
+                    getTransactions();
+                    $('#new_trans').modal('hide');
+                }
+                else
+                {
+                  alert("Something Error Occured !");
+                }
+                
+              }
+            });
+        }
     });
 </script>
 <style type="text/css">

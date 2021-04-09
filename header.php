@@ -32,7 +32,11 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/all-themes.css"  rel="stylesheet" />
     <link href="css/materialize.css"  rel="stylesheet" />
-
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link href="css/buttons.dataTables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -75,5 +79,17 @@
         
     </div>   
 </div>  
-
+  <!-- Jquery DataTable Plugin Js -->
+  <script src="js/plugins/jquery.dataTables.js"></script>
+  <script src="js/plugins/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+  <script src="js/plugins/extensions/export/dataTables.buttons.min.js"></script>
+  <script src="js/plugins/extensions/export/buttons.flash.min.js"></script>
+  <script src="js/plugins/extensions/export/jszip.min.js"></script>
+  <script src="js/plugins/extensions/export/pdfmake.min.js"></script>
+  <script src="js/plugins/extensions/export/vfs_fonts.js"></script>
+  <script src="js/plugins/extensions/export/buttons.html5.min.js"></script>
+  <script src="js/plugins/extensions/export/buttons.print.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
