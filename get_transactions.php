@@ -17,7 +17,7 @@
         // parameter represents the DataTables column identifier. In this case simple
         // indexes
         $columns = array(
-            array( 'db' => 'trans_no', 'dt' => 0 ),
+            array( 'db' => 'id', 'dt' => 0 ),
             array(
                 'db'        => 'trans_type',
                 'dt'        => 1,
