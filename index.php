@@ -22,9 +22,8 @@
 
                 <div class="collapse navbar-collapse" id="show-menu">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                         
-
+                        <li class="nav-item active ">
+                          
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="log.php">Login</a>
@@ -32,6 +31,9 @@
                         
                         <li class="nav-item">
                             <a class="nav-link" href="signup.php">Register</a>
+                        </li>
+                        <li class="nav-item si ">
+                         <a href="shoping.php"> <img height="" width="60" src="shoping.png"></a> 
                         </li>
                        
                     </ul>
@@ -65,3 +67,9 @@
       
     </body>
 </html>
+<style type="text/css">
+    .si{
+        height: 20%;
+        width: 20%;
+    }
+</style>

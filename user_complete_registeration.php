@@ -38,7 +38,8 @@ include("get_user.php");
 
                
          
-        
+          
+        </div><!--/col-3-->
     	<div class="col-sm-9">
             
         <div class="col-sm-12">

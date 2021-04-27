@@ -16,7 +16,7 @@ body {
 
    background-image:url("imgs/header.jpg");
     background-size: cover;
-    background-attachment:fixed;	
+    background-attachment:fixed;  
 }
 
 .card-signin {
@@ -261,49 +261,49 @@ body {
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Sign Up</h5>
-            <form class="form-signin" method="POST" action="insert.php" id="form_sign_up">
-			  
-			  
-			  <div class="form-label-group">
+            <form class="form-signin" method="POST" action="user_insert.php" id="form_sign_up">
+        
+        
+        <div class="form-label-group">
                 <input type="text" id="inputname" class="form-control" name="na" placeholder="Name" onchange="nam()" required autofocus>
                 <label for="inputname">Name</label>
-				<p id="m1"></p>
+        <p id="m1"></p>
               </div>
-			
-			  <div class="form-label-group">
+      
+        <div class="form-label-group">
                 <input type="email" id="inputEmail" class="form-control" name="em" onchange="eml()" placeholder="Email" required autofocus>
                 <label for="inputEmail">Email</label>
-				<p id="m2"></p>
+        <p id="m2"></p>
               </div>
-			
+      
               <div class="form-label-group">
                 <input type="text" id="inputtext" class="form-control" name="una" onchange="unam()" placeholder="Username" required autofocus>
                 <label for="inputtext">Username</label>
-				<p id="m3"></p>
+        <p id="m3"></p>
               </div>
 
               <div class="form-label-group">
                 <input type="password" id="inputPassword" class="form-control" name="pa" onchange="pass()" placeholder="Password" required autofocus>
                 <label for="inputPassword">Password</label>
-				        <p id="m4"></p>
+                <p id="m4"></p>
               </div>
-			  
-			  <div class="form-label-group">
+        
+        <div class="form-label-group">
                 <input type="password" id="inputcPassword" class="form-control" onchange="cpass()" placeholder="Confirm Password" required>
                 <label for="inputcPassword">Confirm Password</label>
-				<p id="m5"></p>
+        <p id="m5"></p>
               </div>
-			  
-			   
-			  <div class="form-label-group">
+        
+         
+        <div class="form-label-group">
                 <input type="number" id="inputphone" class="form-control" name="ph" onchange="pho()" placeholder="Password" required>
                 <label for="inputphone">Phone</label>
-			        	<p id="m7"></p>
+                <p id="m7"></p>
         </div>
        
-			  
-			 
-			 
+        
+       
+       
 
              
               <center><button class="btn btn-lg btn-primary  text-uppercase" id="sign_up_btn" type="button" >Sign up</button>
@@ -326,7 +326,7 @@ body {
       }
     }
 
-	 $('#sign_up_btn').click(function(){
+   $('#sign_up_btn').click(function(){
     var form_valid = validate();
     if (form_valid) {
       var  x=document.getElementById("inputtext").value;
