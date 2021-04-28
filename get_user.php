@@ -33,5 +33,10 @@
 		$farming_item[] = $row_farming;
 	}
 		# code...
+$sql_user="SELECT * from users where user_id=".$_SESSION['user']."";
+$user_detail=mysqli_query($con,$sql_user);
+	while ($row_user = mysqli_fetch_assoc($user_detail)) {
+		$user_item[] = $row_user;
+	}
 
 ?>

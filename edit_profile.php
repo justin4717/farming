@@ -76,67 +76,60 @@ include("get_user.php");
                    
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="profile">
-                           <h5 class="mb-3">User Profile</h5>
+                           <h4 class="mb-3">User Profile</h4>
                     <div class="row">
+                        <?php foreach( $user_item as $items) :    ?>
                         <div class="col-md-6">
                             <h6>Name</h6>
-                            <p>
-                                Web Designer, UI/UX Engineer
+                          
+
+                                <?php echo $items["name"]; ?>
                             </p>
-                            <h6>Hobbies</h6>
+                            <br>
+                            <h6>Email</h6>
                             <p>
-                                Indie music, skiing and hiking. I love the great outdoors.
+                                <?php echo $items["email"]; ?>
+                            </p>
+                            <br>
+                             <h6>Phone</h6>
+                            <p>
+                                <?php echo $items["phone"]; ?>
+                            </p>
+                            <br>
+                           
+                             <br>
+                            <h6>Gender</h6>
+
+                            <p>
+                                <?php echo $items["gender"]; ?>
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <h6>Recent badges</h6>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">html5</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">react</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">codeply</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">angularjs</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">css3</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">jquery</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">bootstrap</a>
-                            <a href="javascript:void();" class="badge badge-dark badge-pill">responsive-design</a>
-                            <hr>
-                            <span class="badge badge-primary"><i class="fa fa-user"></i> 900 Followers</span>
-                            <span class="badge badge-success"><i class="fa fa-cog"></i> 43 Forks</span>
-                            <span class="badge badge-danger"><i class="fa fa-eye"></i> 245 Views</span>
-                        </div>
-                        <div class="col-md-12">
-                            <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span> Recent Activity</h5>
-                            <table class="table table-hover table-striped">
-                                <tbody>                                    
-                                    <tr>
-                                        <td>
-                                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                            <h4 class="mb-3">Address</h4>
+                            <h6>State</h6>
+                            <p>
+                                <?php echo $items["state"]; ?>
+                            </p>
+                            <h6>District</h6>
+                            <p>
+                                <?php echo $items["district"]; ?>
+                            </p>
+                           
+                             <h6>Area</h6>
+                            <p>
+                               <?php echo $items["area"]; ?>
+                            </p>
                             
+                             <h6>Pin Code</h6>
+                            <p>
+                                <?php echo $items["pin"]; ?>
+                            </p>
+                            
+
+                        </div>
+                     
+                    </div>
+                             <?php endforeach ; ?>
                         </div>
                   
 
@@ -148,19 +141,14 @@ include("get_user.php");
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">First name</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Mark">
+                                <input class="form-control" type="text" value="<?php echo $items["name"]; ?>">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Jhonsan">
-                            </div>
-                        </div>
+                       
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Email</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="mark@example.com">
+                                <input class="form-control" type="email" value=" <?php echo $items["email"]; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -170,45 +158,34 @@ include("get_user.php");
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                            <label class="col-lg-3 col-form-label form-control-label">Phone</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="url" value="">
+                                <input class="form-control" type="url" value="<?php echo $items["phone"]; ?>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Address</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" placeholder="Street">
+                                <input class="form-control" type="text" value="" placeholder="state">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-4">
-                                <input class="form-control" type="text" value="" placeholder="City">
+                                <input class="form-control" type="text" value="" placeholder="District">
                             </div>
                             <div class="col-lg-4">
-                                <input class="form-control" type="text" value="" placeholder="State">
+                                <input class="form-control" type="text" value="" placeholder="area">
                             </div>
                         </div>
                        
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                            <label class="col-lg-3 col-form-label form-control-label">pin</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="jhonsanmark">
+                                <input class="form-control" type="text" value="<?php echo $items["pin"]; ?>">
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="password" value="11111122333">
-                            </div>
-                        </div>
+                       
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
@@ -229,3 +206,6 @@ include("get_user.php");
 
 </div>
 </div>
+<style type="text/css">
+    
+</style>

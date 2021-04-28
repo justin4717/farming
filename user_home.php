@@ -23,7 +23,7 @@ include("get_market.php");
                                     <p class="btn btn-danger btn-block"><?php echo $items["product_item_price"]; ?>Rs</p>
                                 </div>
                                 <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Add to cart</a>
+                                    <a href="#" class="btn btn-success btn-block">Buy</a>
                                 </div>
                             </div>
                         </div>
