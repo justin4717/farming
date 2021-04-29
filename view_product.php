@@ -1,7 +1,7 @@
 <?php
 include("Auth.php");
 include("customer_header.php");
-include("get_product.php");
+include("view_buying_product.php");
 ?>
 
 

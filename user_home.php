@@ -23,7 +23,7 @@ include("get_market.php");
                                     <p class="btn btn-danger btn-block"><?php echo $items["product_item_price"]; ?>Rs</p>
                                 </div>
                                 <div class="col">
-                                    <a href="#" class="btn btn-success btn-block">Buy</a>
+                                    <a href="#" class="btn btn-success btn-block prd-buy" data-product="<?php echo $items["product_item_id"]; ?>">Buy</a>
                                 </div>
                             </div>
                         </div>
@@ -103,3 +103,11 @@ footer a {
 }
 
 </style>
+
+<script type="text/javascript">
+    $('.prd-buy').click(function(){
+        var product_id = $(this).data('product');
+        location.href="view_product.php?product="+product_id;
+    });
+    
+</script>
