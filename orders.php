@@ -1,7 +1,7 @@
 <?php
 include("Auth.php");
 
-include("get_market.php");
+include("get_orders.php");
 
 ?>
 
@@ -74,22 +74,20 @@ include("get_market.php");
         </a>
     </div>
 </div>
-<div class="modal fade" id="checkout" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-lg" role="document">
+<div class="modal fade" id="order_view">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header text-center">
-                <h5 class="modal-title" style="width:100%;">Check Out</h5>
-                <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" style="width:100%;">Order #</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
-                </button>-->
+                </button>
             </div>
             <div class="modal-body">
-                <div class="container">
-                    <div id="checkout_loading" class="text-center" style="width: 100%;display: none;">
-                        <i class="font-bold fa fa-spin fa-spinner" style="font-size: 45px;"></i>
-                    </div>
-                    <div id="checkout_fill"></div>
+                <div id="order_loading" class="text-center" style="width: 100%;display: none;">
+                    <i class="font-bold fa fa-spin fa-spinner" style="font-size: 45px;"></i>
                 </div>
+                <div id="order_fill"></div>
             </div>
         </div>
     </div>
@@ -104,54 +102,49 @@ include("get_market.php");
 
 <div class="container ">
     <div class="row">
-   
+
         <div class="col">
             <div class="row">
-                <?php foreach( $product as $items) :    ?>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="card">
-                       <img src="uploads/<?php echo $items["product_item_image"]; ?>"  alt="dsadas" />
-                        <div class="card-body">
-                             <div class="row">
-                                <div class="col">
-                                    <h4 class="card-title"><p  title="View Product"><?php echo $items["product_item_name"]; ?></p></h4>
-                                </div>
-                                <div class="col">
-                                     <p class="card-text"><?php echo $items["product_item_price"]; ?>Rs</p>
-                                </div>
-                            </div>
-                           
-                          
-                             <div class="row">
-                                <div class="col">
-                                   <p class="card-text">Quantity</p>
-                                </div>
-                                <div class="col">
-                                   <input type="text" name="quantity" id="quantity<?php echo $items["product_item_id"]; ?>" class="form-control" value="1" />
-                                   <input type="hidden" name="hidden_name" id="name<?php echo $items["product_item_id"]; ?>"
-                                   value="<?php echo $items["product_item_name"]; ?>" />
-                                   <input type="hidden" name="hidden_price" id="price<?php echo $items["product_item_id"]; ?>"
-                                   value="<?php echo $items["product_item_price"]; ?>" />
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block add_to_cart " name="add_to_cart" id="<?php echo $items["product_item_id"]; ?>">Add Cart</a>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-success btn-block prd-buy" data-product="<?php echo $items["product_item_id"]; ?>">Buy</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-12 table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <tr>  
+                            <th>Order Id</th>
+                            <th>Order Date</th>
+                            <th>Items</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                        <?php foreach( $orders as $order) :    ?>
+                            <tr>
+                                <td><?php echo $order["order_id"]; ?></td>
+                                <td><?php echo date('d/m/Y', strtotime($order["order_date"])); ?></td>
+                                <td><?php echo $order["item_count"]; ?></td>
+                                <td><?php echo $order["amount"]; ?></td>
+                                <td>
+                                    <?php
+                                    if ($order["status"] == 0) {
+                                        echo "Pending";
+                                    } else if ($order["status"] == 1) {
+                                        echo "Processing";
+                                    } else if ($order["status"] == 2) {
+                                        echo "Shipped";
+                                    } else if ($order["status"] == 3) {
+                                        echo "Delivered";
+                                    } else if ($order["status"] == 4) {
+                                        echo "Cancelled";
+                                    } else {
+                                        echo "Failed";
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <button class="btn btn-primary" onclick="viewOrder('<?php echo $order["order_id"]; ?>')">View</button>
+                                </td>
+                            </tr>
+                        <?php endforeach ; ?>
+                    </table>
                 </div>
-                <br>
-                <br>
-                <?php endforeach ; ?>
-
-                r5
-                
             </div>
         </div>
 
@@ -371,7 +364,7 @@ $(document).ready(function(){
       $(document).on('click', '#check_out_cart', function(){
         $('#cart-popover').popover('hide');
         $('#checkout').modal('show');
-        $('#checkout_loading').show();
+        $('#order_loading').show();
 
         $.ajax({
             url:"cart_checkout.php",
@@ -380,8 +373,8 @@ $(document).ready(function(){
             data:{},
             success:function(resp)
             {
-                $('#checkout_loading').hide();
-                $('#checkout_fill').html(resp.checkout_data);
+                $('#order_loading').hide();
+                $('#order_fill').html(resp.checkout_data);
             }
         });
     });
@@ -396,8 +389,8 @@ $(document).ready(function(){
 
       $(document).on('click', '#pay_btn', function(){
         $('#checkout_actions').hide();
-        $('#checkout_fill').hide();
-        $('#checkout_loading').show();
+        $('#order_fill').hide();
+        $('#order_loading').show();
 
         let shipping_address =  $('#shipping_addr').val();
         let phone =  $('#shipping_phone').val();
@@ -407,8 +400,8 @@ $(document).ready(function(){
         if (shipping_address=='' || phone=='' || pay_mode=='') {
             alert("Please Fill All Details !");
             $('#checkout_actions').show();
-            $('#checkout_fill').show();
-            $('#checkout_loading').hide();
+            $('#order_fill').show();
+            $('#order_loading').hide();
             return;
         }
         $.ajax({
@@ -424,8 +417,8 @@ $(document).ready(function(){
             success:function(resp)
             {
                 $('#checkout_actions').show();
-                $('#checkout_fill').show();
-                $('#checkout_loading').hide();
+                $('#order_fill').show();
+                $('#order_loading').hide();
                 if (resp.status == 'success') {
                     $('#checkout').modal('hide');
                     if (pay_mode == 0) {
@@ -440,9 +433,22 @@ $(document).ready(function(){
             }
         });
       });
-    
 });
 
-
+function viewOrder(order_id) {
+    $('#order_view').modal('show');
+    $('#order_loading').show();
+    $.ajax({
+        url:"order_view.php",
+        method:"POST",
+        dataType:'json',
+        data:{order_id: order_id},
+        success:function(resp)
+        {
+            $('#order_loading').hide();
+            $('#order_fill').html(resp.order_data);
+        }
+    });
+}
 
 </script>

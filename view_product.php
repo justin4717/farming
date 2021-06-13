@@ -16,23 +16,23 @@ include("view_buying_product.php");
                     <h5>Purchase Product</h5>
                 </div>
                 <div class="ibox-content">
-                    <div class="table-responsive">
-                        <table class="table shoping-cart-table">
-                            <tbody>
-                            <tr>
-                                <td width="90">
+                    
+                        <div class="container1">
+                        	<?php foreach( $buy_product as $items) :    ?>
+                            <div class="row">
+                                  <div class="col-md-3">
                                     <div class="cart-product-imitation">
+                                      <img height="150%" width="150%" src="uploads/<?php echo $items["product_item_image"]; ?>"  alt="dsadas"  />
                                     </div>
-                                </td>
-                                <td class="desc">
+                                  </div>
+                                <div class="col-md-3">
                                     <h3>
                                     <a href="#" class="text-navy">
-                                        Desktop publishing software
+                                       <?php echo $items["product_item_name"]; ?>
                                     </a>
                                     </h3>
-                                    <p class="small">
-                                        It is a long established fact that a reader will be distracted by the readable
-                                        content of a page when looking at its layout. The point of using Lorem Ipsum is
+                                    <!--<p class="small">
+                                        <?php echo $items["product_item_price"]; ?>
                                     </p>
                                     <dl class="small m-b-none">
                                         <dt>Description lists</dt>
@@ -43,36 +43,42 @@ include("view_buying_product.php");
                                         <a href="#" class="text-muted"><i class="fa fa-gift"></i> Add gift package</a>
                                         |
                                         <a href="#" class="text-muted"><i class="fa fa-trash"></i> Remove item</a>
+                                    </div>-->
+                                </div>
+                                <div class="col-md-3 distance">
+                                  <div class="row">
+                                  1Kg.  <?php echo $items["product_item_price"]; ?> RS
                                     </div>
-                                </td>
 
-                                <td>
-                                    $180,00
-                                    <s class="small text-muted">$230,00</s>
-                                </td>
-                                <td width="65">
-                                    <input type="text" class="form-control" placeholder="1">
-                                </td>
-                                <td>
+                                <br>
+                                <br>
+                                    <div class="row" style="">
+                                       Quantity:  <input style="width: 60px" type="text" class="form-control" placeholder="1">
+                                    </div>
+                                  </div>
+                                
+                               <div class="col-md-3 " >
                                     <h4>
-                                        $180,00
+                                         <?php echo $items["product_item_price"]; ?>RS
                                     </h4>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                               </div>
+                            
+                               <?php endforeach ; ?>
+                       </div>
+                   
 
-                </div>
+                 </div>
                 
-                <div class="ibox-content">
-                    <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
-                    <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                      <div class="ibox-content">
+                          <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+                          <a href="user_home.php "><button class="btn btn-white" ><i class="fa fa-arrow-left"></i> Continue shopping</button>
 
-                </div>
-            </div>
+                      </div>
+          
 
         </div>
+      </div>
+    </div>
         <div class="col-md-3">
            
             <div class="ibox">
@@ -80,9 +86,9 @@ include("view_buying_product.php");
                     <h5>Support</h5>
                 </div>
                 <div class="ibox-content text-center">
-                    <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+                    <h3><i class="fa fa-phone"></i> </h3>
                     <span class="small">
-                        Please contact with us if you have any questions. We are avalible 24h.
+                        
                     </span>
                 </div>
             </div>
@@ -96,6 +102,7 @@ include("view_buying_product.php");
 <style type="text/css">
   body{margin-top:20px;
     background:#eee;
+    overflow: hidden;
 }
 h3 {
     font-size: 16px;
@@ -129,20 +136,7 @@ h3 {
 .ecommerce .note-editor {
   border: 1px solid #e7eaec;
 }
-table.shoping-cart-table {
-  margin-bottom: 0;
-}
-table.shoping-cart-table tr td {
-  border: none;
-  text-align: right;
-}
-table.shoping-cart-table tr td.desc,
-table.shoping-cart-table tr td:first-child {
-  text-align: left;
-}
-table.shoping-cart-table tr td:last-child {
-  width: 80px;
-}
+
 .ibox {
   clear: both;
   margin-bottom: 25px;
@@ -187,4 +181,12 @@ table.shoping-cart-table tr td:last-child {
   background: #ffffff;
   padding: 10px 15px;
 }
+.container1 {
+    max-width: 1140px;
+    margin-bottom: 5rem;
+}
+.distance{
+  padding-bottom: 2px;
+}
+
 </style>

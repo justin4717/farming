@@ -29,7 +29,7 @@ include("get_user.php");
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
               <br>
-<form class="form" action="update_user.php" method="post" id="registrationForm">
+<form class="form" action="update_user.php" method="post" id="registrationForm"  enctype="multipart/form-data" >
       <div class="text-center">
         <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar" >
        <br><br>

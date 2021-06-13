@@ -18,21 +18,20 @@ include("get_market.php");
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-            <ul class="navbar-nav m-auto">
-              
-                <li class="nav-item active">
-                    <a class="nav-link" href="category.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="customer_login.php">sign in</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="user_signup.php">sign up</a>
-                </li>
-               
-            </ul>
+           
 
             <form class="form-inline my-2 my-lg-0">
+                <div class="nav-item">
+                    <ul class="navbar-nav ">
+                  
+                        <li class="nav-item">
+                            <a class="nav-link" href="customer_login.php">sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="user_signup.php">sign up</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="input-group input-group-sm">
                     <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search...">
                     <div class="input-group-append">
@@ -41,10 +40,8 @@ include("get_market.php");
                         </button>
                     </div>
                 </div>
-                <a class="btn btn-success btn-sm ml-3" href="cart.html">
-                    <i class="fa fa-shopping-cart"></i> Cart
-                    <span class="badge badge-light">0</span>
-                </a>
+                
+                 
             </form>
         </div>
     </div>
@@ -62,7 +59,7 @@ include("get_market.php");
                     <div class="card">
                        <img src="uploads/<?php echo $items["product_item_image"]; ?>"  alt="dsadas" />
                         <div class="card-body">
-                            <h4 class="card-title"><a href="product.html" title="View Product"><?php echo $items["product_item_name"]; ?></a></h4>
+                            <h4 class="card-title"><a  title="View Product"><?php echo $items["product_item_name"]; ?></a></h4>
                             <p class="card-text"></p>
                             <div class="row">
                                 <div class="col">
@@ -91,6 +88,9 @@ include("get_market.php");
 ** Style Simple Ecommerce Theme for Bootstrap 4
 ** Created by T-PHP https://t-php.fr/43-theme-ecommerce-bootstrap-4.html
 */
+.nav-item{
+    margin-right: 12px;
+}
 .bloc_left_price {
     color: #c01508;
     text-align: center;
