@@ -69,6 +69,7 @@
             <a href="edit_profile.php" class="btn btn-secondary btn-lg  btn-block " role="button" aria-pressed="true">My profile </a>
             <a href="my_post.php" class="btn btn-secondary btn-lg  btn-block " role="button" aria-pressed="true">Posts</a>
             <a href="farmer_market.php" class="btn btn-secondary btn-lg  btn-block " role="button" aria-pressed="true">Market</a>
+             <a href="order_list.php" class="btn btn-secondary btn-lg  btn-block " role="button" aria-pressed="true">Orders</a>
              <!-- <button class="btn  btn-lg waves-effect btn-block">Chat</button>
             <button class="btn  btn-lg waves-effect btn-block">Images</button>
             <button class="btn  btn-lg waves-effect btn-block">Notifications</button>-->

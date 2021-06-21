@@ -44,7 +44,7 @@ for (i = 0; i < coll.length; i++) {
             <div class="body">
                 <div>
                    
-        <div>
+            <div>
                     <ul class="nav nav-tabs" role="tablist">
                         <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Farmers network</a></li>
                         <li role="presentation"><a href="#profile_settings" aria-controls="settings" role="tab" data-toggle="tab">Farming Instruction</a></li>

@@ -13,7 +13,7 @@
 <div class="content">
     <div class="col-xs-12 col-sm-9">
         <div class="card">
-            <div class="body1">
+            <div class="body">
              <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="home">
                             
@@ -93,7 +93,7 @@
 </div>
 
 <style type="text/css">
-  .body1{
+  .body{
     
     height:100%;
     overflow-y: scroll;

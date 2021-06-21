@@ -72,47 +72,52 @@
 </script>
 
 
-    <div class="col-xs-12 col-sm-9">
-        <div class="card">
-            <div class="body">
-                
-         
-            <div class="tab-pane active" id="home">
-                <hr>
+   <div class="col-xs-12 col-sm-9">
+    <div class="card">
+        <div class="body">
+          
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                    Update password
+
+                </div>
+                 <div class="panel-body">
+                  <br>
                  <form class="form" action="user_update_password.php" method="POST" id="form_submit">   
                  
                     <div class="row">
-                      <div class="col-sm-6">
+                      <div class="col-sm-4">
                           <div class="form-group">
                           
                             <label for="password2"><h4>New Password</h4></label>
-                              <input type="password" class="form-control" name="pas" id="password" placeholder="new password" title="enter your place." onchange="pass()" required>
+                              <input type="password" class="form-control" name="pas" id="password" title="enter your place." onchange="pass()" required>
                                <p style="color: red" id="m1"></p>
                              
                           </div>
                       </div>
-                      <div class="col-sm-6">
+                      <div class="col-sm-4">
                           <div class="form-group">
                           
-                            <label for="password2"><h4>verify password</h4></label>
-                              <input type="password" class="form-control" name="pin" id="cpassword" placeholder="verify password" title="enter password "  onchange="cpass()" required>
+                            <label for="password2"><h4>Verify password</h4></label>
+                           
+                              <input type="password" class="form-control" name="pin" id="cpassword" title=" Enter password" onchange="cpass()" required>
                                <p style="color: red" id="m2"></p>
                           </div>
                       </div>
-                    </div>
-                    
-                    <div class="row">
-                      <div class="col-sm-12">
+                      <div class="col-sm-3">
                             <div class="form-group">
                            
                                 <br>
-                                <button class="btn btn-lg btn-success" id="validate_btn" type="button" onsubmit="validate()"></i> Save</button>
+                                <br>
+                                
+                                <button class="btn btn-lg btn-success" id="validate_btn" type="button" onsubmit="validate()"></i> update</button>
                                 
                             </div>
                       </div>
-
                     </div>
+                    
                 </form>
+              </div>
               
               <hr>
               
